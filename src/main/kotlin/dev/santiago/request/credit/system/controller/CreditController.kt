@@ -5,6 +5,7 @@ import dev.santiago.request.credit.system.controller.dto.CreditView
 import dev.santiago.request.credit.system.controller.dto.CreditViewList
 import dev.santiago.request.credit.system.entity.Credit
 import dev.santiago.request.credit.system.service.impl.CreditService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -24,7 +25,7 @@ class CreditController(
 ) {
 
     @PostMapping
-    fun saveCredit(@RequestBody creditDto: CreditDto): ResponseEntity<String> {
+    fun saveCredit(@RequestBody @Valid creditDto: CreditDto): ResponseEntity<String> {
         val savedCredit = this.creditService.save(credit = creditDto.toEntity())
         return ResponseEntity.status(HttpStatus.CREATED)
             .body("Credit ${savedCredit.creditCode} - Customer ${savedCredit.customer?.firstName} saved!")
