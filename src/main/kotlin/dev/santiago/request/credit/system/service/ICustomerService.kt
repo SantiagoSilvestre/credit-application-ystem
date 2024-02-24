@@ -1,14 +1,12 @@
 package dev.santiago.request.credit.system.service
 
-import dev.santiago.request.credit.system.entity.Credit
-import dev.santiago.request.credit.system.entity.Custumer
-import java.util.*
+import dev.santiago.request.credit.system.entity.Customer
 
 interface ICustomerService {
 
-    fun save(customer: Custumer): Custumer
+    fun save(customer: Customer): Customer
 
-    fun findById(id: Long): Custumer
+    fun findById(id: Long): Customer
 
     fun delete(id: Long)
 
