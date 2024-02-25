@@ -8,7 +8,7 @@ import java.util.UUID
 
 @Entity
 data class Credit(
-    @Column(nullable = false, unique = true) val creditCode: UUID = UUID.randomUUID(),
+    @Column(nullable = false, unique = true) var creditCode: UUID = UUID.randomUUID(),
     @Column(nullable = false) var creditValue: BigDecimal = BigDecimal.ZERO,
     @Column(nullable = false) var dayFirstInstallment: LocalDate,
     @Column(nullable = false) var numberOfInstallment: Int = 0,
